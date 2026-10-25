@@ -1,4 +1,4 @@
-# Playwright API-Aware Logistics TMS Tests
+# Logistics TMS API-Aware Test Automation
 
 Java Playwright automation for a private logistics workflow application. The framework combines page objects with API watchers and sessions so a UI action is considered successful only when the backend response and payload satisfy the assertion policy.
 
