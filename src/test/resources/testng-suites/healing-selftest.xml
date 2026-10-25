@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  SELF-HEALING SELF-TEST — checks the healing engine itself against local HTML pages (no staging, no
+  network, ~30 s). Run it after changing anything under com.portfolio.logistics.healing:
+
+    mvn test -DsuiteXmlFile=src/test/resources/testng-suites/healing-selftest.xml
+
+  No RetryTransformer: these tests are deterministic, and a retry would hide a real regression.
+-->
+<suite name="Self-healing Self-test" verbose="1">
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="Self-healing engine">
+        <classes>
+            <class name="com.portfolio.logistics.tests.healing.HealingScoringTest"/>
+            <class name="com.portfolio.logistics.tests.healing.SelfHealingFixtureTest"/>
+            <class name="com.portfolio.logistics.tests.healing.AiAdvisorRequestTest"/>
+        </classes>
+    </test>
+
+</suite>

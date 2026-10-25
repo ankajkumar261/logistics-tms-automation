@@ -1,0 +1,34 @@
+package com.portfolio.logistics.tests.roles.reports;
+
+import com.portfolio.logistics.model.Role;
+import com.portfolio.logistics.pages.AppNavigator;
+import com.portfolio.logistics.tests.roles.RoleTestBase;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.testng.annotations.Test;
+
+import java.util.List;
+
+import static org.testng.Assert.assertTrue;
+
+/**
+ * REPORTS role functional coverage. REPORTS is scoped to Reports only (confirmed live 2026-07-17);
+ * this verifies the REPORTS user can open its reports.
+ */
+@Epic("Logistics TMS TMS")
+@Feature("Roles — REPORTS")
+public class ReportsFunctionalTest extends RoleTestBase {
+
+    @Test(description = "REPORTS can open its reports")
+    @Severity(SeverityLevel.CRITICAL)
+    public void reportsRender() {
+        signIn(Role.REPORTS);
+        List<String> failures = new AppNavigator(page).firstFailures(
+                "/reports/sales", "Sales Report",
+                "/reports/aging", "Aging Invoices",
+                "/reports/outstanding", "Outstanding Report");
+        assertTrue(failures.isEmpty(), "Reports that did not render for REPORTS: " + failures);
+    }
+}

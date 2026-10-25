@@ -1,0 +1,22 @@
+# Copy to src/test/resources/config.properties; the copy is ignored.
+base.url=https://app.example.test
+superadmin.corporateId=EXAMPLE_TENANT
+superadmin.username=EXAMPLE_ADMIN
+superadmin.password=SET_LOCALLY
+admin.corporateId=EXAMPLE_TENANT
+admin.username=EXAMPLE_ADMIN
+admin.password=SET_LOCALLY
+browser.headless=true
+browser.slowMo=0
+timeout.default.ms=25000
+healing.mode=OFF
+healing.threshold=90
+healing.minMargin=10
+healing.probeTimeoutMs=5000
+healing.knownBrokenProbeMs=2000
+healing.healReads=false
+healing.store.dir=.healing
+healing.ai.enabled=false
+healing.ai.model=claude-model-from-environment
+healing.ai.maxCallsPerRun=10
+healing.ai.minScore=75

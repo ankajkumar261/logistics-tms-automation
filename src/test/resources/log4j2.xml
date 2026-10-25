@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <!-- Self-healing: every heal attempt (applied or not), fresh each run. -->
+        <File name="HealingFile" fileName="target/healing/healing.log" append="false" createOnDemand="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.portfolio.logistics.healing" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="HealingFile"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

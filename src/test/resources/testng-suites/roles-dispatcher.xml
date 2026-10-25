@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Role - DISPATCHER" parallel="classes" thread-count="1" verbose="1">
+    <listeners><listener class-name="io.qameta.allure.testng.AllureTestNg"/><listener class-name="com.portfolio.logistics.retry.RetryTransformer"/><listener class-name="com.portfolio.logistics.retry.RetryReportCleaner"/></listeners>
+    <test name="DISPATCHER - access">
+        <classes>
+            <class name="com.portfolio.logistics.tests.roles.RoleAccessControlTest">
+                <methods><include name="dispatcherAccess"/></methods>
+            </class>
+        </classes>
+    </test>
+    <test name="DISPATCHER - functional">
+        <classes>
+            <class name="com.portfolio.logistics.tests.roles.dispatcher.DispatcherOrderTest"/>
+            <class name="com.portfolio.logistics.tests.roles.dispatcher.DispatcherTripTest"/>
+            <class name="com.portfolio.logistics.tests.roles.dispatcher.DispatcherMasterDataTest"/>
+        </classes>
+    </test>
+</suite>

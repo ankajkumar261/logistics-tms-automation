@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  SMOKE — one representative happy-path test per module (Modules 00-14), kept green and fast-ish.
+  The two known-fail tests (SettlementCreateTest, SettingsTest#companyProfileEditSaveRevert) are
+  intentionally excluded so a green smoke means "the core of every module works". Full coverage
+  lives in regression.xml.
+
+  Module numbers are zero-padded (00, 01, ... 09, 10) so reports that sort test names
+  alphabetically still show them in module order.
+
+  parallel="classes" thread-count="1" — one isolated browser context per class; keep serial on the
+  shared live environment until proven stable.
+-->
+<suite name="Logistics TMS Smoke Suite" parallel="classes" thread-count="1" verbose="1">
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+        <listener class-name="com.portfolio.logistics.retry.RetryTransformer"/><listener class-name="com.portfolio.logistics.retry.RetryReportCleaner"/>
+    </listeners>
+
+    <test name="Module 00 - Smoke">
+        <classes><class name="com.portfolio.logistics.tests.smoke.SmokeTest"/></classes>
+    </test>
+    <test name="Module 01 - Auth">
+        <classes><class name="com.portfolio.logistics.tests.auth.AuthTest"/></classes>
+    </test>
+    <test name="Module 02 - Master Data">
+        <classes><class name="com.portfolio.logistics.tests.cpanel.CustomerTest"/></classes>
+    </test>
+    <test name="Module 03 - Orders">
+        <classes><class name="com.portfolio.logistics.tests.Orders.OrderTest"/></classes>
+    </test>
+    <test name="Module 04 - Trips">
+        <classes><class name="com.portfolio.logistics.tests.trips.TripWorkflowTest"/></classes>
+    </test>
+    <test name="Module 05 - Invoices">
+        <classes><class name="com.portfolio.logistics.tests.accounting.InvoiceTest"/></classes>
+    </test>
+    <test name="Module 06 - Settlements">
+        <classes><class name="com.portfolio.logistics.tests.accounting.SettlementListTest"/></classes>
+    </test>
+    <test name="Module 07 - Vendor Bills">
+        <classes><class name="com.portfolio.logistics.tests.accounting.VendorBillTest"/></classes>
+    </test>
+    <test name="Module 08 - Bank Reconciliation">
+        <classes><class name="com.portfolio.logistics.tests.accounting.BankReconciliationTest"/></classes>
+    </test>
+    <test name="Module 09 - Factoring">
+        <classes><class name="com.portfolio.logistics.tests.accounting.FactoringTest"/></classes>
+    </test>
+    <test name="Module 10 - Integrations">
+        <classes><class name="com.portfolio.logistics.tests.integrations.IntegrationsTest"/></classes>
+    </test>
+    <test name="Module 11 - Reports">
+        <classes><class name="com.portfolio.logistics.tests.reports.ReportsTest"/></classes>
+    </test>
+    <test name="Module 12 - Admin">
+        <classes><class name="com.portfolio.logistics.tests.admin.AdminTest"/></classes>
+    </test>
+    <test name="Module 13 - Settings">
+        <classes>
+            <class name="com.portfolio.logistics.tests.settings.SettingsTest">
+                <methods>
+                    <include name="profileFormEditable"/>
+                    <include name="changePasswordPage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Module 14 - Public Site">
+        <classes><class name="com.portfolio.logistics.tests.publicsite.PublicSiteTest"/></classes>
+    </test>
+
+</suite>

@@ -1,0 +1,16 @@
+target/
+.idea/
+*.iml
+src/test/resources/config.properties
+allure-results/
+allure-report/
+.healing/
+healing/locator-history.json
+exports/
+screenshots/
+videos/
+*.webm
+*.xlsx
+*.zip
+.DS_Store
+Thumbs.db

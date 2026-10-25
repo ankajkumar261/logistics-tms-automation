@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Recheck" verbose="1"><test name="R"><classes><class name="com.portfolio.logistics.tests.trips.TripTest"/></classes></test></suite>

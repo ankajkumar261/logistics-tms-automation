@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Role - ACCOUNTS" parallel="classes" thread-count="1" verbose="1">
+    <listeners><listener class-name="io.qameta.allure.testng.AllureTestNg"/><listener class-name="com.portfolio.logistics.retry.RetryTransformer"/><listener class-name="com.portfolio.logistics.retry.RetryReportCleaner"/></listeners>
+    <test name="ACCOUNTS - access">
+        <classes>
+            <class name="com.portfolio.logistics.tests.roles.RoleAccessControlTest">
+                <methods><include name="accountsAccess"/></methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ACCOUNTS - functional">
+        <classes>
+            <class name="com.portfolio.logistics.tests.roles.accounts.AccountsInvoiceTest"/>
+            <class name="com.portfolio.logistics.tests.roles.accounts.AccountsVendorBillsTest"/>
+            <class name="com.portfolio.logistics.tests.roles.accounts.AccountsSettlementsTest"/>
+            <class name="com.portfolio.logistics.tests.roles.accounts.AccountsPaymentsTest"/>
+            <class name="com.portfolio.logistics.tests.roles.accounts.AccountsFactoringTest"/>
+            <class name="com.portfolio.logistics.tests.roles.accounts.AccountsReportsTest"/>
+        </classes>
+    </test>
+</suite>

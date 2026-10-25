@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Roles - Login &amp; Access" parallel="classes" thread-count="1" verbose="1">
+    <listeners><listener class-name="io.qameta.allure.testng.AllureTestNg"/><listener class-name="com.portfolio.logistics.retry.RetryTransformer"/><listener class-name="com.portfolio.logistics.retry.RetryReportCleaner"/></listeners>
+    <test name="Login + Access matrix (all roles)">
+        <classes>
+            <class name="com.portfolio.logistics.tests.roles.RoleLoginTest"/>
+            <class name="com.portfolio.logistics.tests.roles.RoleAccessControlTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,3 @@
+orderNumber,originAddress,originCity,originState,originPostalCode,destAddress,destCity,destState,destPostalCode,shipmentType,weight,commodityType
+ORD-__RUN__-1,123 Main St,Toronto,ON,M5V 1A1,456 Oak Ave,Montreal,QC,H2X 1Y4,Regular,5000,Electronics
+ORD-__RUN__-2,55 York St,Toronto,ON,M5J 1R7,789 W Pender St,Vancouver,BC,V6C 1H2,FTL,1200,Building Materials
